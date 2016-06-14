@@ -11,6 +11,7 @@ import json
 import xml.dom.minidom
 import urllib
 import time
+from datetime import datetime
 import re
 import random
 from traceback import format_exc
@@ -555,14 +556,14 @@ class WXBot:
             else:
                 msg_type_id = 99
                 user['name'] = 'unknown'
-                print '[DEBUG] setting msg_type_id as 99'
+                print '[%s][DEBUG] setting msg_type_id as 99' % datetime.now().time()
             if not user['name']:
-                print '[DEBUG] user["name"] not available'
+                print '[%s][DEBUG] user["name"] not available' % datetime.now().time()
                 user['name'] = 'unknown'
             user['name'] = HTMLParser.HTMLParser().unescape(user['name'])
 
             if self.DEBUG and msg_type_id != 0:
-                print '[MSG] %s:' % user['name']
+                print '[%s][MSG] %s:' % (datetime.now().time(), user['name'])
             content = self.extract_msg_content(msg_type_id, msg)
             message = {'msg_type_id': msg_type_id,
                        'msg_id': msg['MsgId'],
