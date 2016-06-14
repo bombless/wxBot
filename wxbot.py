@@ -12,6 +12,7 @@ import xml.dom.minidom
 import urllib
 import time
 from datetime import datetime
+from pprint import pprint
 import re
 import random
 from traceback import format_exc
@@ -486,7 +487,7 @@ class WXBot:
                 print '    | desc: %s' % self.search_content('des', content, 'xml')
                 print '    | link: %s' % msg['Url']
                 print '    | from: %s' % self.search_content('appname', content, 'xml')
-                print '    | content: %s' % msg.get('content')[:20]
+                print '    | content: %s' % (pprint msg.get('content') if not msg.get('content') else msg.get('content')[:20])
                 print '    --------------------------'
 
         elif mtype == 62:
