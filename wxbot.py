@@ -558,7 +558,7 @@ class WXBot:
                 user['name'] = 'unknown'
                 print '[%s][DEBUG] setting msg_type_id as 99' % datetime.now().time()
             if not user['name']:
-                print '[%s][DEBUG] user["name"] not available' % datetime.now().time()
+                print '[%s][DEBUG] user["name"] not available, msg_type_id = %d' % (datetime.now().time(), msg_type_id)
                 user['name'] = 'unknown'
             user['name'] = HTMLParser.HTMLParser().unescape(user['name'])
 
